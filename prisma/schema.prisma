@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId   String  @unique @db.String
+  email     String  @unique
+  username  String
+  photo     String
+  sessionId String? @unique @db.String
+  firstName String?
+  lastName  String?
+
+  @@map("users")
+}
+
+model Code {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  code       Int
+  name       String
+  stock      Int     @default(0)
+  company    String  @default("")
+  Elzaafran  Int     @default(0)
+  Hokok      Int     @default(0)
+  Khulfaa    Int     @default(0)
+  Kolytadab  Int     @default(0)
+  madenty    Int     @default(0)
+  portSaid   Int     @default(0)
+  porsaid_st Int     @default(0)
+  semad      Int     @default(0)
+  zagazig    Int     @default(0)
+  arkhan     Int     @default(0)
+  awel_khulfa Int    @default(0)
+  awel_march Int     @default(0)
+  ismailia   Int     @default(0)
+  gala2      Int     @default(0)
+  gomhorya   Int     @default(0)
+  golf       Int     @default(0)
+  drasat     Int     @default(0)
+  rehab      Int     @default(0)
+  swees      Int     @default(0)
+  mohafza    Int     @default(0)
+  m_aam      Int     @default(0)
+  manzala    Int     @default(0)
+  new_domyat Int     @default(0)
+  estad      Int     @default(0)
+  gamaa      Int     @default(0)
+  geesh      Int     @default(0)
+  seka       Int     @default(0)
+  bank_masr  Int     @default(0)
+  domyat     Int     @default(0)
+  sheraton   Int     @default(0)
+  kanat_swees Int    @default(0)
+  m_nasr     Int     @default(0)
+}
